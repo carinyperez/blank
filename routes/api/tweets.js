@@ -32,11 +32,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/',
+    // postman returns unauthorized  
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-      console.log(req); 
       const { errors, isValid } = validateTweetInput(req.body);
-        
       if (!isValid) {
         return res.status(400).json(errors);
       }
