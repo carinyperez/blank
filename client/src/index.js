@@ -8,8 +8,8 @@ import jwt_decode from 'jwt-decode';
 // session utility 
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-import {store} from './store/store'; 
 import Root from './components/root/root';
+import { store } from './store/store';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,5 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root'); 
   ReactDOM.render(<Root store={store}/>, root);
 })
-
 
