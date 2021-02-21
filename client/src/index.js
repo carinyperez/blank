@@ -6,11 +6,10 @@ import axios from 'axios';
 // parse the user's session token 
 import jwt_decode from 'jwt-decode'; 
 // session utility 
-import { setAuthToken } from './util/session_api_util';
-import { logout } from './actions/session_actions';
 import Root from './components/root/root';
-import { store } from './store/store';
-
+import {store} from './redux/store'; 
+import { logout } from './redux/reducers/session/session-actions';
+import { setAuthToken } from './util/sessionapi-util';
 
 document.addEventListener('DOMContentLoaded', () => {
   // let store; 

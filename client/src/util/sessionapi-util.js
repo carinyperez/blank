@@ -9,3 +9,18 @@ export const setAuthToken = token => {
     }
 }
 
+
+// pass data to register link 
+export const signup = (userData) => {
+    return axios.post('api/users/register', userData)
+};
+
+// pass data to register login 
+export const login = (userData) => {
+    return axios.post('/api/users/login', userData); 
+}; 
+
+
+
+
+

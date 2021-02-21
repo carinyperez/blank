@@ -1,11 +1,12 @@
-import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
+import { session } from "passport";
+import { RECEIVE_USER_LOGOUT } from "./session-actions";
 
 const initialState = {
     isAuthenticated: false,
     user: {}
 }; 
 
-export default function(state = initialState, action) {
+const sessionReducer = (state = initialState, action) => {
     switch(action.type) {
         case RECEIVE_USER_LOGOUT: 
         return {
@@ -16,3 +17,5 @@ export default function(state = initialState, action) {
         return state;
     }
 }
+
+export default sessionReducer; 

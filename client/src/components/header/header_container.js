@@ -1,9 +1,12 @@
 import {connect} from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout } from '../../redux/reducers/session/session-actions';
 import Header from './header.component';
 
-const mapStateToProps = state => ({
-    loggedIn: state.session.isAuthenticated 
-})
 
-export default connect(mapStateToProps, {logout})(Header); 
+const mapStateToProps = state => (
+    {loggedIn: state.session.isAuthenticated}
+)
+
+const HeaderContainer = connect(mapStateToProps, {logout})(Header); 
+
+export default HeaderContainer; 
