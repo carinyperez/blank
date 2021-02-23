@@ -7,6 +7,8 @@ const mapStateToProps = state => (
     {loggedIn: state.session.isAuthenticated}
 )
 
+
+
 const HeaderContainer = connect(mapStateToProps, {logout})(Header); 
 
 export default HeaderContainer; 

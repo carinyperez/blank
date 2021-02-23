@@ -2,38 +2,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import axios from 'axios'; 
-// import configureStore, { store } from './store/store';
-// parse the user's session token 
 import jwt_decode from 'jwt-decode'; 
-// session utility 
 import Root from './components/root/root';
-import {store} from './redux/store'; 
+import {configureStore} from './redux/store'; 
 import { setAuthToken } from './util/sessionapi-util';
 import { logout } from './redux/actions/actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // let store; 
+  let store;
 
-  // if(localStorage.jwtToken) {
-  //   setAuthToken(localStorage.jwtToken);
-  //   const decodedUser = jwt_decode(localStorage.jwtToken); 
-  //   const preloadedState = {session: {isAuthenticated: true, user: decodedUser}}
+  if (localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
 
-  //   store = configureStore(preloadedState); 
+    const decodedUser = jwt_decode(localStorage.jwtToken);
+    const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
     
-  //   const currentTime = Date.now() / 1000; 
+    store = configureStore(preloadedState);
 
-  //   // if the user's token has expired logout user and redirect to login 
-  //   if(decodedUser.exp < currentTime) {
-  //     store.dispatch(logout()); 
-  //     window.location.href = '/login'
-  //   } else {
-  //     // if first time user empty store 
-  //     store = configureStore({}); 
-  //   }
-  // }
-  // render our root component and pass the store as a prop
-  const root = document.getElementById('root'); 
-  ReactDOM.render(<Root store={store}/>, root);
-})
+    const currentTime = Date.now() / 1000;
+
+    if (decodedUser.exp < currentTime) {
+      store.dispatch(logout());
+      window.location.href = '/login';
+    }
+  } else {
+    store = configureStore({});
+  }
+  const root = document.getElementById('root');
+
+  ReactDOM.render(<Root store={store} />, root);
+});
+
+window.axios = axios; 
+
+
 
