@@ -17,6 +17,7 @@ export const signup = (userData) => {
 
 // pass data to register login 
 export const login = (userData) => {
+    console.log(userData); 
     return axios.post('/api/users/login', userData); 
 }; 
 

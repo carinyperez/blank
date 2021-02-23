@@ -1,8 +1,5 @@
 import './App.css';
 import {Route,Switch} from 'react-router-dom'; 
-import Header from './header/header.component';
-import LoginPage from '../pages/loginpage/loginpage.component';
-import SignUp from '../pages/signuppage/signuppage.component';
 import MainPage from '../pages/mainpage/mainpage.component';
 import LoginFormContainer from './loginform/loginform_container';
 import SignUpFormContainer from './signupform/signupform_container';
@@ -18,10 +15,10 @@ function App() {
         component={MainPage}
         />
         <AuthRoute exact path='/login'
-        component={LoginPage}
+        component={LoginFormContainer}
         />
         <AuthRoute exact path='/signup'
-        component={SignUp}
+        component={SignUpFormContainer}
         />
       </Switch>
     </div>

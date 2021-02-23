@@ -8,8 +8,8 @@ import jwt_decode from 'jwt-decode';
 // session utility 
 import Root from './components/root/root';
 import {store} from './redux/store'; 
-import { logout } from './redux/reducers/session/session-actions';
 import { setAuthToken } from './util/sessionapi-util';
+import { logout } from './redux/actions/actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   // let store; 
