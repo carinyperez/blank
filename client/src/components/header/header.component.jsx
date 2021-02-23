@@ -1,5 +1,6 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom'; 
+import Tweet from '../tweets/tweet';
 import './header.styles.scss';
 
 class Header extends React.Component {
@@ -38,6 +39,7 @@ class Header extends React.Component {
             <div>
                 {this.getLinks()}
             </div>
+
         )
     }
 

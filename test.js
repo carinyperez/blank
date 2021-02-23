@@ -1,11 +1,18 @@
-window.axios = 'axios'; 
-
-const getTweets = () => {
-    return axios.get('/api/tweets')
-    //{msg: "This is the users route"}
+const data = {
+    tweet: 'hello'
 }
 
-const fetchTweets = () => dispatch => (
-    getTweets()
+
+const writeData = (data) => {
+    console.log(data); 
+}
+
+
+const composeTweet = data => () => (
+    writeData(data)
 )
+
+console.log(composeTweet(data)()); 
+
+
 
